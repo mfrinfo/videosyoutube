@@ -56,14 +56,14 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
     end
     object Rodape: TRLBand
       Left = 38
-      Top = 281
+      Top = 240
       Width = 718
       Height = 36
       BandType = btFooter
       object RLSystemInfo3: TRLSystemInfo
         Left = 3
         Top = 17
-        Width = 183
+        Width = 218
         Height = 16
         Info = itFullDate
         Text = ''
@@ -104,9 +104,9 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
         ParentFont = False
       end
       object RLSystemInfo1: TRLSystemInfo
-        Left = 699
+        Left = 603
         Top = 17
-        Width = 16
+        Width = 112
         Height = 16
         Alignment = taRightJustify
         Info = itLastPageNumber
@@ -125,7 +125,7 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
       Left = 38
       Top = 93
       Width = 718
-      Height = 124
+      Height = 147
       DataFields = 'categoriaId'
       Degrade.OppositeColor = clSilver
       FooterMeasuring = fmBeforeDetail
@@ -248,14 +248,14 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
         Left = 0
         Top = 66
         Width = 718
-        Height = 55
+        Height = 75
         BandType = btSummary
         Color = clWhite
         ParentColor = False
         Transparent = False
         object RLDBResult1: TRLDBResult
-          Left = 608
-          Top = 14
+          Left = 606
+          Top = 12
           Width = 109
           Height = 16
           Alignment = taRightJustify
@@ -311,6 +311,14 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
           Width = 371
           Height = 7
           DrawKind = dkLine
+        end
+        object RLAngleLabel1: TRLAngleLabel
+          Left = 171
+          Top = 11
+          Width = 16
+          Height = 61
+          Angle = 90.000000000000000000
+          Caption = 'RESUMO'
         end
       end
       object RLBand3: TRLBand
@@ -394,13 +402,13 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
     Connection = DtmPrincipal.ConexaoDB
     Active = True
     SQL.Strings = (
-      '  SELECT  produtos.produtoId, '
+      '  SELECT  produtos.produtoId,'
       '          produtos.Nome, '
-      #9#9'  produtos.Descricao, '
-      #9#9'  produtos.Valor, '
-      #9#9'  produtos.Quantidade,'
-      #9#9'  produtos.categoriaId,'
-      #9#9'  categorias.descricao AS DescricaoCategoria'
+      #9#9'      produtos.Descricao,'
+      #9#9'      produtos.Valor,'
+      #9#9'      produtos.Quantidade,'
+      #9#9'      produtos.categoriaId,'
+      #9#9'      categorias.descricao AS DescricaoCategoria'
       '    FROM  produtos'
       
         #9'      LEFT JOIN categorias on categorias.CategoriaId = produtos' +
@@ -451,5 +459,16 @@ object frmRelCadProdutosComGrupoCategoria: TfrmRelCadProdutosComGrupoCategoria
     DisplayName = 'Planilha Excel 97-2013'
     Left = 88
     Top = 424
+  end
+  object RLHTMLFilter1: TRLHTMLFilter
+    DocumentStyle = dsCSS2
+    DisplayName = 'P'#225'gina da Web'
+    Left = 88
+    Top = 488
+  end
+  object RLRichFilter1: TRLRichFilter
+    DisplayName = 'Formato RichText'
+    Left = 88
+    Top = 576
   end
 end

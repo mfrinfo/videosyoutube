@@ -16,7 +16,7 @@ object frmRelCadCategorias: TfrmRelCadCategorias
   PixelsPerInch = 96
   TextHeight = 13
   object Relatorio: TRLReport
-    Left = 0
+    Left = 8
     Top = 0
     Width = 794
     Height = 1123
@@ -161,7 +161,7 @@ object frmRelCadCategorias: TfrmRelCadCategorias
       end
       object RLLabel2: TRLLabel
         Left = 685
-        Top = 17
+        Top = 16
         Width = 8
         Height = 16
         Caption = '/'
@@ -202,6 +202,7 @@ object frmRelCadCategorias: TfrmRelCadCategorias
   end
   object QryCategorias: TZQuery
     Connection = DtmPrincipal.ConexaoDB
+    Active = True
     SQL.Strings = (
       'Select categoriaId, descricao from categorias')
     Params = <>

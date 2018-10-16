@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, RLFilters, RLPDFFilter,
   Data.DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, RLXLSFilter,
-  RLXLSXFilter;
+  RLXLSXFilter, RLRichFilter, RLHTMLFilter;
 
 type
   TfrmRelCadProdutosComGrupoCategoria = class(TForm)
@@ -55,6 +55,9 @@ type
     RLLabel11: TRLLabel;
     RLDraw3: TRLDraw;
     RLXLSFilter1: TRLXLSFilter;
+    RLHTMLFilter1: TRLHTMLFilter;
+    RLRichFilter1: TRLRichFilter;
+    RLAngleLabel1: TRLAngleLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

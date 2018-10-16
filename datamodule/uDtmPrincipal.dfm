@@ -8,11 +8,11 @@ object DtmPrincipal: TDtmPrincipal
     SQLHourGlass = True
     HostName = 'VIRTUAL-PC\SERVERCURSO'
     Port = 0
-    Database = 'vendas'
+    Database = 'dbRelatorio'
     User = 'sa'
     Password = 'mudar@123'
     Protocol = 'mssql'
-    LibraryLocation = 'C:\cursoDelphi\ntwdblib.dll'
+    LibraryLocation = 'C:\ExemploParaYouTube\ntwdblib.dll'
     Left = 48
     Top = 24
   end

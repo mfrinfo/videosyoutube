@@ -74,7 +74,7 @@ begin
     Port:=1433;          //Porta do SQL Server
     User := 'sa';  //Usuario do Banco de Dados
     Password:='mudar@123';  //Senha do Usuário do banco
-    Database:='vendas';  //Nome do Banco de Dados
+    Database:='dbRelatorio';  //Nome do Banco de Dados
     Connected:=True;  //Faz a Conexão do Banco
   end;
 

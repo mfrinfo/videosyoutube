@@ -253,9 +253,9 @@ object frmRelCadProdutos: TfrmRelCadProdutos
     SQL.Strings = (
       '  SELECT  produtos.produtoId, '
       '          produtos.Nome, '
-      #9#9'  produtos.Descricao, '
-      #9#9'  produtos.Valor, '
-      #9#9'  produtos.Quantidade'
+      #9#9'      produtos.Descricao,'
+      #9#9'      produtos.Valor,'
+      #9#9'      produtos.Quantidade'
       '    FROM  produtos')
     Params = <>
     Left = 520

@@ -25,11 +25,12 @@ object frmMenuPrincipal: TfrmMenuPrincipal
     Align = alTop
     TabOrder = 0
     object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 750
-      Height = 422
+      Left = 1
+      Top = 1
+      Width = 751
+      Height = 423
       Cursor = crHandPoint
+      Align = alClient
       AutoSize = True
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000002EE0000
@@ -5084,6 +5085,9 @@ object frmMenuPrincipal: TfrmMenuPrincipal
         3BFF9B1363465A84D177E2EEFCEF54651B2E347668C45DC38CC6FF01A7E898B8
         9B99260A0000000049454E44AE426082}
       OnClick = Image1Click
+      ExplicitLeft = 12
+      ExplicitWidth = 750
+      ExplicitHeight = 422
     end
     object mmoLinha: TMemo
       Left = 752
@@ -5140,8 +5144,6 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ReadOnly = True
       TabOrder = 0
       OnClick = Image1Click
-      ExplicitLeft = 756
-      ExplicitTop = 0
     end
   end
   object MainMenu1: TMainMenu
@@ -5168,7 +5170,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
   end
   object Script_Banco_De_Dados: TZQuery
     SQL.Strings = (
-      'IF OBJECT_ID ('#39'categorias'#39') IS NULL '
+      'IF OBJECT_ID ('#39'categorias'#39') IS NULL'
       'BEGIN'
       #9'CREATE TABLE categorias('
       #9'   categoriaId int IDENTITY(1,1) NOT NULL,'
@@ -5177,7 +5179,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ')'
       'END'
       ''
-      'IF OBJECT_ID ('#39'produtos'#39') IS NULL '
+      'IF OBJECT_ID ('#39'produtos'#39') IS NULL'
       'BEGIN'
       #9'CREATE TABLE produtos('
       #9#9'produtoId int IDENTITY(1,1) NOT NULL,'
@@ -5187,13 +5189,13 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       #9#9'quantidade decimal(18,5) default 0.00000 null,'
       #9#9'categoriaId int null,'
       #9#9'PRIMARY KEY (produtoId),'
-      #9#9'CONSTRAINT FK_ProdutosCategorias '
+      #9#9'CONSTRAINT FK_ProdutosCategorias'
       #9#9'FOREIGN KEY (categoriaId) references categorias(categoriaId)'
       #9')'
       'END'
       ''
       ''
-      'IF OBJECT_ID ('#39'clientes'#39') IS NULL '
+      'IF OBJECT_ID ('#39'clientes'#39') IS NULL'
       'BEGIN'
       #9'CREATE TABLE clientes('
       #9#9'clienteId int IDENTITY(1,1) NOT NULL,'
@@ -5203,14 +5205,14 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       #9#9'bairro varchar(40) null,'
       #9#9'estado varchar(2) null,'
       #9#9'cep varchar(10) null,'
-      #9#9'telefone varchar(14) null,  '
+      #9#9'telefone varchar(14) null,'
       #9#9'email varchar(100) null,'
       #9#9'dataNascimento datetime null'
       #9#9'PRIMARY KEY (clienteId),'
       #9')'
       'END'
       ''
-      'IF OBJECT_ID ('#39'vendas'#39') IS NULL '
+      'IF OBJECT_ID ('#39'vendas'#39') IS NULL'
       'BEGIN'
       #9'Create table vendas ('
       #9'  vendaId int identity(1,1) not null,'
@@ -5225,7 +5227,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       #9')'
       'END;'
       ''
-      'IF OBJECT_ID ('#39'vendasItens'#39') IS NULL '
+      'IF OBJECT_ID ('#39'vendasItens'#39') IS NULL'
       'BEGIN'
       #9'Create table vendasItens ('
       #9'  vendaId int not null,'
@@ -5241,23 +5243,6 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ''
       ''
       ''
-      ''
-      '--Limpar as Tabelas'
-      '  delete from vendasItens  '
-      ''
-      '  delete from vendas'
-      '  DBCC CHECKIDENT('#39'vendas'#39', RESEED, 0)'
-      '  '
-      '  delete from produtos'
-      '  DBCC CHECKIDENT('#39'produtos'#39', RESEED, 0)'
-      ''
-      '  delete from clientes'
-      '  DBCC CHECKIDENT('#39'clientes'#39', RESEED, 0)'
-      ''
-      '  delete from categorias'
-      '  DBCC CHECKIDENT('#39'categorias'#39', RESEED, 0)'
-      '  '
-      ''
       '--TESTES DE INCLUSAO'
       
         '  INSERT INTO categorias (descricao) VALUES ('#39'Celulares'#39'), ('#39'Com' +
@@ -5266,7 +5251,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       
         '  INSERT INTO produtos (nome, descricao, valor, quantidade, cate' +
         'goriaId)'
-      '       VALUES ('#39'Smartphone Samsung Wave Y S5380 Prata'#39', '
+      '       VALUES ('#39'Smartphone Samsung Wave Y S5380 Prata'#39','
       
         #9'           '#39'Celular Samsung Wave Y S5380 Desbloqueado Quadriban' +
         'd, utilize diversos recursos ao mesmo tempo e com mais velocidad' +
@@ -5274,7 +5259,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       #9#9#9'   399.90,'
       #9#9#9'   100,'
       #9#9#9'   1),'
-      #9#9#9'   ('#39'Smartphone Samsung Galaxy J5 Prime'#39', '
+      #9#9#9'   ('#39'Smartphone Samsung Galaxy J5 Prime'#39','
       
         #9'           '#39'Smartphone Samsung Galaxy J5 Prime SM-G570M, Quad C' +
         'ore 1.4Ghz, Android 6.0.1,Tela 5, 32GB, 13MP, Leitor Digital, Du' +
@@ -5282,19 +5267,19 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       #9#9#9'   752.90,'
       #9#9#9'   50,'
       #9#9#9'   1),'
-      #9#9#9'   ('#39'Computador HP Intel Core I3-7100'#39', '
+      #9#9#9'   ('#39'Computador HP Intel Core I3-7100'#39','
       
         #9'           '#39'Computador HP Intel Core I3-7100, 4GB, HD 500GB, Wi' +
         'ndows 10 Pro - 2SE06LA'#39','
       #9#9#9'   2148.10,'
       #9#9#9'   40,'
       #9#9#9'   2),'
-      #9#9#9'   ('#39'Notebook Acer 15.6'#180' Core I3-6006'#39', '
+      #9#9#9'   ('#39'Notebook Acer 15.6'#180' Core I3-6006'#39','
       #9'           '#39'Notebook Acer 15.6'#180' Core I3-6006, 4GB, 500GB.'#39','
       #9#9#9'   2352.82,'
       #9#9#9'   100,'
       #9#9#9'   2),'
-      #9#9#9'   ('#39'Tablet Multilaser M9-3G Quad-Core 9'#39', '
+      #9#9#9'   ('#39'Tablet Multilaser M9-3G Quad-Core 9'#39','
       
         #9'           '#39'Tablet Multilaser M9-3G Quad-Core 9, 8GB, Bluetooth' +
         ', Dual Chip, C'#226'mera Preto - NB247.'#39','
@@ -5307,7 +5292,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
         'lefone, cep, email, dataNascimento)'
       
         'VALUES ('#39'Severino Oliver Luan Foga'#231'a'#39', '#39'Av. Joaquim Ferreira Sou' +
-        'to 524'#39', '#39'Agudos'#39', '#39'CENTRO'#39', '#39'SP'#39', '
+        'to 524'#39', '#39'Agudos'#39', '#39'CENTRO'#39', '#39'SP'#39','
       
         '        '#39'(14) 2808-3989'#39', '#39'17.120-970'#39', '#39'severinooliverluanfogac' +
         'a-81@lphbrasil.com.br'#39', '#39'22/03/1996'#39')'
@@ -5317,7 +5302,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
         'lefone, cep, email, dataNascimento)'
       
         'VALUES ('#39'Iago Vitor Matheus Porto'#39', '#39'Rua Ant'#244'nio Sartoratto, s/n' +
-        #39', '#39'Eleut'#233'rio'#39', '#39'CENTRO'#39', '#39'SP'#39', '
+        #39', '#39'Eleut'#233'rio'#39', '#39'CENTRO'#39', '#39'SP'#39','
       
         '        '#39'(19) 2513-6046'#39', '#39'17.120-971'#39', '#39'iagovitormatheusporto..' +
         'iagovitormatheusporto@hotmail.com.br'#39', '#39'22/03/1996'#39')')
